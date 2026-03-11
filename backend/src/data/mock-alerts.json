@@ -1,0 +1,97 @@
+[
+  {
+    "timestamp": "2026-03-11T09:15:00.000Z",
+    "tool": "mock",
+    "eventType": "alert",
+    "severity": "high",
+    "signature": "Nmap SYN Scan Detected",
+    "srcIp": "192.168.1.50",
+    "srcPort": 49622,
+    "destIp": "192.168.1.10",
+    "destPort": 80,
+    "protocol": "TCP",
+    "category": "scan",
+    "status": "new",
+    "notes": ["Initial scan activity from internal test host"],
+    "rawLog": {
+      "engine": "mock-ingest",
+      "source": "week1-seed"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:30:00.000Z",
+    "tool": "mock",
+    "eventType": "alert",
+    "severity": "medium",
+    "signature": "Multiple Failed Login Attempts",
+    "srcIp": "10.0.0.22",
+    "srcPort": 51111,
+    "destIp": "10.0.0.5",
+    "destPort": 3000,
+    "protocol": "TCP",
+    "category": "brute-force",
+    "status": "investigating",
+    "notes": ["Possible brute-force activity on login endpoint"],
+    "rawLog": {
+      "endpoint": "/login",
+      "failedAttempts": 12
+    }
+  },
+  {
+    "timestamp": "2026-03-11T09:42:00.000Z",
+    "tool": "mock",
+    "eventType": "alert",
+    "severity": "critical",
+    "signature": "SQL Injection Pattern Detected",
+    "srcIp": "185.220.101.4",
+    "srcPort": 44321,
+    "destIp": "10.0.0.5",
+    "destPort": 8080,
+    "protocol": "TCP",
+    "category": "web-attack",
+    "status": "new",
+    "notes": ["Payload resembled classic SQL injection string"],
+    "rawLog": {
+      "payload": "' OR 1=1 --",
+      "path": "/search"
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:01:00.000Z",
+    "tool": "mock",
+    "eventType": "alert",
+    "severity": "low",
+    "signature": "Suspicious DNS Query Volume",
+    "srcIp": "10.0.0.18",
+    "srcPort": 53000,
+    "destIp": "8.8.8.8",
+    "destPort": 53,
+    "protocol": "UDP",
+    "category": "dns",
+    "status": "false-positive",
+    "notes": ["May be normal application behavior, needs review"],
+    "rawLog": {
+      "queryCount": 250,
+      "windowSeconds": 60
+    }
+  },
+  {
+    "timestamp": "2026-03-11T10:20:00.000Z",
+    "tool": "mock",
+    "eventType": "alert",
+    "severity": "high",
+    "signature": "Command Injection Attempt",
+    "srcIp": "203.0.113.77",
+    "srcPort": 60100,
+    "destIp": "10.0.0.5",
+    "destPort": 8080,
+    "protocol": "TCP",
+    "category": "web-attack",
+    "status": "new",
+    "notes": ["Potential command injection in query parameter"],
+    "rawLog": {
+      "payload": "; cat /etc/passwd",
+      "path": "/tools/ping"
+    }
+  }
+]
